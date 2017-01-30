@@ -15,4 +15,5 @@ angular.module('practiceApp')
       'Karma'
     ];
     customService.warnLog($scope.awesomeThings[1] + 'is here!!!');
+
   });

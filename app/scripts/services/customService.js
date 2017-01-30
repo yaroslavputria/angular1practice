@@ -8,7 +8,7 @@ angular.module('practiceApp')
         console.warn(pre + str);
       },
       errLog: function(str) {
-        console.error(pre + str);
+        console.error(str);
       }
     };
   });
