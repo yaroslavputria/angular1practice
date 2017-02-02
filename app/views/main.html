@@ -6,5 +6,13 @@
   </p>
 </div>
 <div reg-directive>
-  
+
+</div>
+
+<div>
+  <input type="text" ng-model="gitName">
+  <button ng-click="getRepos()">Get the list of repositories</button>
+  <ul> <h2>All {{gitName}}'s repositories:</h2>
+    <li ng-repeat="name in reposNames">{{name}}</li>
+  </ul>
 </div>

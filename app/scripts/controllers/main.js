@@ -8,7 +8,8 @@
  * Controller of the practiceApp
  */
 angular.module('practiceApp')
-  .controller('MainCtrl', function ($scope, customService, $sanitize) {
+  .controller('MainCtrl', function ($scope, customService, $sanitize, $http, $q) {
+    console.dir($q);
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -19,4 +20,18 @@ angular.module('practiceApp')
       $scope.defaultName = $sanitize(newName);
       customService.warnLog('Name was sanitized.');
     });
+    $scope.gitName = 'yaroslavputria';
+    $scope.getRepos = function() {
+      $http({
+        method: 'GET',
+        url: 'https://api.github.com/users/' + $scope.gitName + '/repos'
+      }).then((res) => {
+        $scope.reposNames = res.data.map((repo) => {
+          return repo.name;
+        });
+        console.log($scope.reposNames);
+      }, () => {
+
+      });
+    };
   });
